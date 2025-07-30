@@ -35,9 +35,9 @@ FROM filmes AS f
 SELECT af.id, f.titulo, a.nome, af.personagem
 FROM atores_filmes AS af
 	INNER JOIN filmes AS f
-	ON f.id = af.id_filme
-		INNER JOIN atores AS a
-		ON a.id = af.id_ator;
+ON f.id = af.id_filme
+	INNER JOIN atores AS a
+ON a.id = af.id_ator;
 */
 
 -- Como você faria para encontrar o gênero que possui o id igual a 2?
@@ -81,12 +81,12 @@ WHERE valor = (SELECT MAX(valor) FROM filmes);
 SELECT f.titulo, g.genero, af.personagem, a.nome 
 FROM filmes AS f
 	INNER JOIN atores_filmes AS af
-	ON af.id_filme = f.id
-		INNER JOIN generos AS g
-		ON g.id = f.id_genero
-			INNER JOIN atores AS a 
-			ON a.id = af.id_ator
-				AND a.nome ='Felicity Jones';
+ON af.id_filme = f.id
+	INNER JOIN generos AS g
+ON g.id = f.id_genero
+	INNER JOIN atores AS a 
+ON a.id = af.id_ator
+	AND a.nome ='Felicity Jones';
 */
 
 -- Como você faria para encontrar o título do filme e o personagem de todos os filmes em que o 
@@ -96,13 +96,13 @@ FROM filmes AS f
 SELECT f.titulo, af.personagem, a.nome, g.genero
 FROM filmes AS f
 	INNER JOIN atores_filmes AS af
-	ON af.id_filme = f.id
-		INNER JOIN atores AS a 
-		ON a.id = af.id_ator
-			INNER JOIN generos AS g
-			ON g.id = f.id_genero
-AND a.nome = 'Brad Pitt'
-AND g.genero = 'Comédia';
+ON af.id_filme = f.id
+	INNER JOIN atores AS a 
+ON a.id = af.id_ator
+	INNER JOIN generos AS g
+ON g.id = f.id_genero
+	AND a.nome = 'Brad Pitt'
+	AND g.genero = 'Comédia';
 */
 
 -- Como você faria para obter detalhes de cada empréstimo, incluindo o ID do empréstimo, o nome e 
@@ -113,15 +113,15 @@ AND g.genero = 'Comédia';
 SELECT e.id, c.nome, c.sobrenome, e.data, f.titulo, g.genero
 FROM emprestimos as e
 	INNER JOIN clientes AS c
-	ON c.id = e.id_cliente
-		INNER JOIN filmes_emprestimo AS fe
-		ON fe.id_emprestimo = e.id
-			INNER JOIN filmes AS f
-			ON f.id = fe.id_filme
-				INNER JOIN generos AS g
-				ON g.id = f.id_genero
-					INNER JOIN dvds AS dvd
-					ON dvd.id = fe.id_dvd;				
+ON c.id = e.id_cliente
+	INNER JOIN filmes_emprestimo AS fe
+ON fe.id_emprestimo = e.id
+	INNER JOIN filmes AS f
+ON f.id = fe.id_filme
+	INNER JOIN generos AS g
+ON g.id = f.id_genero
+	INNER JOIN dvds AS dvd
+ON dvd.id = fe.id_dvd;				
 */
 
 --Como você faria para verificar quais filmes os clientes devolveram, incluindo o ID da devolução, o 
@@ -130,17 +130,17 @@ FROM emprestimos as e
 SELECT de.id, c.nome, c.sobrenome, de.data, f.titulo
 FROM devolucoes AS de
 	INNER JOIN emprestimos AS em
-	ON de.id_emprestimo = em.id
-		INNER JOIN clientes AS c
-		ON em.id_cliente = c.id
-			INNER JOIN filmes_devolucao AS fd
-			ON fd.id_devolucao = de.id
-				INNER JOIN filmes_emprestimo AS fe
-					ON fd.id_filme_emprestimo = fe.id
-						INNER JOIN dvds AS dvd
-						ON fe.id_dvd = dvd.id
-							INNER JOIN filmes AS f
-							ON dvd.id_filmes = f.id;
+ON de.id_emprestimo = em.id
+	INNER JOIN clientes AS c
+ON em.id_cliente = c.id
+	INNER JOIN filmes_devolucao AS fd
+ON fd.id_devolucao = de.id
+	INNER JOIN filmes_emprestimo AS fe
+ON fd.id_filme_emprestimo = fe.id
+	INNER JOIN dvds AS dvd
+ON fe.id_dvd = dvd.id
+	INNER JOIN filmes AS f
+ON dvd.id_filmes = f.id;
 */
 
 --Como você faria para calcular quanto cada cliente pagou (soma dos valores dos filmes devolvidos), 
@@ -150,19 +150,18 @@ FROM devolucoes AS de
 SELECT
     e.id AS id_emprestimo, c.nome, c.sobrenome,
     SUM(f.valor) AS valor_total_pago
-FROM
-    filmes_devolucao AS fd
+FROM filmes_devolucao AS fd
 	INNER JOIN devolucoes AS de
-    ON fd.id_devolucao = de.id
-		INNER JOIN emprestimos AS e
-    	ON de.id_emprestimo = e.id
-			INNER JOIN clientes AS c
-    		ON e.id_cliente = c.id
-				INNER JOIN filmes_emprestimo AS fe
-    			ON fd.id_filme_emprestimo = fe.id
-					INNER JOIN dvds AS d
-    				ON fe.id_dvd = d.id
-						INNER JOIN filmes AS f
-    						ON d.id_filmes = f.id
-GROUP BY e.id, c.nome, c.sobrenome;
+ON fd.id_devolucao = de.id
+	INNER JOIN emprestimos AS e
+ON de.id_emprestimo = e.id
+	INNER JOIN clientes AS c
+ON e.id_cliente = c.id
+	INNER JOIN filmes_emprestimo AS fe
+ON fd.id_filme_emprestimo = fe.id
+	INNER JOIN dvds AS d
+ON fe.id_dvd = d.id
+	INNER JOIN filmes AS f
+ON d.id_filmes = f.id
+	GROUP BY e.id, c.nome, c.sobrenome;
 */
