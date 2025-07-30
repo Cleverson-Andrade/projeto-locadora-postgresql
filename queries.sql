@@ -124,7 +124,6 @@ FROM emprestimos as e
 					ON dvd.id = fe.id_dvd;				
 */
 
-
 --Como você faria para verificar quais filmes os clientes devolveram, incluindo o ID da devolução, o 
 --nome e sobrenome do cliente, a data da devolução e o título do filme, utilizando INNER JOIN?
 /*
