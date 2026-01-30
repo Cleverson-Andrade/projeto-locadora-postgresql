@@ -1,6 +1,6 @@
 # Projeto Locadora de Filmes - PostgreSQL
 
-English • [Português](#portugues)
+[English](#english) • [Português](#portugues)
 
 ---
 
