@@ -1,4 +1,6 @@
--- Definição das Tabelas (CREATE TABLE)
+-- =============================================================================
+-- Definição das Tabelas (CREATE TABLE) | Table Definitions (CREATE TABLE)
+-- =============================================================================
 
 CREATE TABLE "generos" (
   "id" SERIAL PRIMARY KEY,
@@ -63,8 +65,9 @@ CREATE TABLE "filmes_devolucao" (
   "id_filme_emprestimo" int NOT NULL
 );
 
-
--- Definição das Chaves Estrangeiras (ALTER TABLE)
+-- =============================================================================
+-- Definição das Chaves Estrangeiras (ALTER TABLE) | Foreign Key Definitions
+-- =============================================================================
 
 ALTER TABLE "filmes" ADD FOREIGN KEY ("id_genero") REFERENCES "generos" ("id");
 
@@ -79,6 +82,7 @@ ALTER TABLE "emprestimos" ADD FOREIGN KEY ("id_cliente") REFERENCES "clientes" (
 ALTER TABLE "filmes_emprestimo" ADD FOREIGN KEY ("id_emprestimo") REFERENCES "emprestimos" ("id");
 
 ALTER TABLE "filmes_emprestimo" ADD FOREIGN KEY ("id_filme") REFERENCES "filmes" ("id");
+
 ALTER TABLE "filmes_emprestimo" ADD FOREIGN KEY ("id_dvd") REFERENCES "dvds" ("id");
 
 ALTER TABLE "devolucoes" ADD FOREIGN KEY ("id_emprestimo") REFERENCES "emprestimos" ("id");
