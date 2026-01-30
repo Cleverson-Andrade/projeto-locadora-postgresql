@@ -1,5 +1,8 @@
--- Arquivo: inserts.sql
+-- =============================================================================
+-- Arquivo: inserts.sql | File: inserts.sql
 -- Contém os comandos para popular o banco de dados da Locadora com dados de exemplo.
+-- Contains commands to populate the Rental Store database with sample data.
+-- =============================================================================
 
 INSERT INTO atores (nome) VALUES ('Brad Pitt');
 INSERT INTO atores (nome) VALUES ('Angelina Jolie');
