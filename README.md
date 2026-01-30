@@ -1,12 +1,13 @@
-# Projeto Locadora de Filmes - PostgreSQL
+# Movie Rental Project - PostgreSQL
 
 [English](#english) • [Português](#portugues)
 
 ---
 
+<a name="english"></a>
 ## 🇺🇸 English
 
-### 📝 About The Project
+### 📝 Project Overview
 This repository contains a movie rental system project, developed as part of the "Bancos de Dados SQL e NoSQL do básico ao avançado" course by Geek University (PostgreSQL Module). The objective was to apply concepts of data modeling, schema creation, insertion, querying, updating, and deleting data in a PostgreSQL relational database.
 
 ### 🛠 Technologies Used
@@ -33,6 +34,8 @@ This repository contains a movie rental system project, developed as part of the
 * **Dependency Management:** Managed foreign key constraints, ensuring correct deletion order across dependent tables.
 
 ---
+
+# Projeto Locadora de Filmes - PostgreSQL
 
 <a name="portugues"></a>
 ## 🇧🇷 Português
@@ -62,3 +65,7 @@ Este repositório contém o projeto de um sistema de locadora de filmes, desenvo
 * **Ajuste de Schema:** Alteração de tabelas existentes e manutenção de integridade após inserções iniciais.
 * **Complexidade de JOINs:** Construção de queries avançadas com múltiplas junções para relatórios precisos.
 * **Gerenciamento de Dependências:** Controle de restrições de chaves estrangeiras durante processos de exclusão de registros.
+
+---
+
+  👤 Author / Autor Cleverson Moura Andrade
